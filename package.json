@@ -9,10 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "@vueuse/core": "^13.0.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
     "vite": "^6.2.1",
     "vite-plugin-vue-devtools": "^7.7.2"
   }

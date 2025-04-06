@@ -16,7 +16,33 @@ defineProps({
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
     </h3>
   </div>
+  <div class="hello">
+    <h1>Hello World!</h1>
+    <button @click="logout" class="logout-btn">Logout</button>
+  </div>
 </template>
+
+<script>
+import { urls } from '@/services/apis'
+import { Post } from '@/services/fetch'
+
+export default {
+  name: 'HelloWorld',
+  methods: {
+    async logout() {
+      await Post(
+        urls.Logout,
+        {},
+        () => {
+          localStorage.removeItem('authToken')
+          this.$router.push('/login')
+        },
+        (error) => console.error('Logout error:', error)
+      )
+    }
+  }
+}
+</script>
 
 <style scoped>
 h1 {
@@ -40,5 +66,19 @@ h3 {
   .greetings h3 {
     text-align: left;
   }
+}
+
+.hello {
+  text-align: center;
+  padding: 20px;
+}
+.logout-btn {
+  margin-top: 20px;
+  padding: 8px 16px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 </style>
